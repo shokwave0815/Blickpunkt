@@ -1,0 +1,77 @@
+object Frm_Filename: TFrm_Filename
+  Left = 352
+  Height = 97
+  Top = 32
+  Width = 320
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'In Bilderordner kopieren'
+  ClientHeight = 97
+  ClientWidth = 320
+  OnShow = FormShow
+  Position = poMainFormCenter
+  object Edit_Filename: TEdit
+    AnchorSideLeft.Control = Label1
+    AnchorSideTop.Control = Label1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = BitBtn2
+    AnchorSideRight.Side = asrBottom
+    Left = 4
+    Height = 23
+    Top = 19
+    Width = 312
+    Anchors = [akTop, akLeft, akRight]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 4
+    Height = 15
+    Top = 4
+    Width = 60
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    Caption = 'Dateiname:'
+    ParentColor = False
+    ParentFont = False
+  end
+  object BitBtn1: TBitBtn
+    AnchorSideLeft.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 4
+    Height = 30
+    Top = 63
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Bottom = 4
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    ParentFont = False
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 232
+    Height = 30
+    Top = 63
+    Width = 84
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 4
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    ParentFont = False
+    TabOrder = 2
+  end
+end
