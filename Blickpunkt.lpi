@@ -22,7 +22,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="9"/>
+      <BuildNr Value="10"/>
       <Language Value="0407"/>
       <StringTable Comments="Blickpunktbilder verwalten" CompanyName="shoKwave Inc." InternalName="Blickpunkt.exe" LegalCopyright="©2020 by shoKwave" OriginalFilename="Blickpunkt.exe" ProductName="Blickpunkt" ProductVersion="1.2"/>
     </VersionInfo>

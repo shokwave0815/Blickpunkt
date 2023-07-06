@@ -3,8 +3,13 @@ program Blickpunkt;
 {$mode objfpc}{$H+}
 
 uses
-    {$IFDEF UNIX}{$IFDEF UseCThreads} cthreads, {$ENDIF}  {$ENDIF}
-    Interfaces, Forms, main, FileHelper, ListHelper, configuration;
+ {$IFDEF UNIX}{$IFDEF UseCThreads} cthreads,  {$ENDIF}   {$ENDIF}
+    Interfaces,
+    Forms,
+    main,
+    FileHelper,
+    ListHelper,
+    configuration;
 
 {$R *.res}
 
