@@ -9,7 +9,7 @@ uses
     FileUtil, Types, FileHelper, ListHelper, LCLType;
 
 const
-    MY_VERSION = 'Blickpunkt V1.3a ©2019-2023 by I.Steiniger';
+    MY_VERSION = 'Blickpunkt V1.3b ©2019-2023 by I.Steiniger';
     ASSETS_PATH = '\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\';
 
 type
@@ -112,9 +112,12 @@ begin
         RefreshSavedPicturesCaption();
         SaveDialog.InitialDir := FileHelper.GetMyPicturesFolder();
 
-        NewPictures.Selected[0] := True;
-        NewPictures.ItemIndex := 0;
-        NewPicturesClick(Sender);
+        if (NewPictures.Count > 0) then
+        begin
+          NewPictures.Selected[0] := True;
+          NewPictures.ItemIndex := 0;
+          NewPicturesClick(Sender);
+        end;
 
         IsProgramStart := False;
     end;

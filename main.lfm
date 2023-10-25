@@ -1,29 +1,31 @@
 object MainForm: TMainForm
   Left = 363
-  Height = 464
+  Height = 580
   Top = 112
-  Width = 758
+  Width = 948
   Caption = 'Blickpunkt V1.0 ©2020 by shoKwave'
-  ClientHeight = 464
-  ClientWidth = 758
+  ClientHeight = 580
+  ClientWidth = 948
+  DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
+  LCLVersion = '2.2.6.0'
   object PreviewSplitter: TSplitter
     Left = 170
     Height = 441
     Top = 0
-    Width = 8
+    Width = 10
   end
   object PanelLeft: TPanel
     Left = 0
     Height = 441
     Top = 0
-    Width = 170
+    Width = 212
     Align = alLeft
     BevelOuter = bvNone
     ClientHeight = 441
-    ClientWidth = 170
+    ClientWidth = 212
     TabOrder = 1
     object GrBo_SavedPictures: TGroupBox
       Left = 0
@@ -52,12 +54,12 @@ object MainForm: TMainForm
     end
     object GrBo_NewPictures: TGroupBox
       Left = 0
-      Height = 150
+      Height = 188
       Top = 0
       Width = 170
       Align = alTop
       Caption = 'aktuelle Bilder'
-      ClientHeight = 130
+      ClientHeight = 168
       ClientWidth = 166
       TabOrder = 0
       object NewPictures: TListBox
@@ -79,7 +81,7 @@ object MainForm: TMainForm
     object ListSplitter: TSplitter
       Cursor = crVSplit
       Left = 0
-      Height = 8
+      Height = 10
       Top = 150
       Width = 170
       Align = alTop
@@ -108,12 +110,12 @@ object MainForm: TMainForm
     DefaultExt = '.jpg'
     Filter = 'JPEG(*.jpg, *.jpeg)|*.jpg; *.jpeg; *.JPG; *.JPEG'
     InitialDir = '.'
-    Left = 32
-    Top = 16
+    Left = 40
+    Top = 20
   end
   object PopMen_NewPictures: TPopupMenu
-    Left = 52314
-    Top = 24
+    Left = 65393
+    Top = 30
     object NewPicturesSave: TMenuItem
       Caption = 'Bild Speichern'
       OnClick = NewPicturesSaveClick
@@ -128,8 +130,8 @@ object MainForm: TMainForm
     end
   end
   object PopMen_SavedPictures: TPopupMenu
-    Left = 52269
-    Top = 193
+    Left = 65336
+    Top = 241
     object SavedPicturesSaveAs: TMenuItem
       Caption = 'Bild speichern unter'
       OnClick = SavedPicturesSaveAsClick
