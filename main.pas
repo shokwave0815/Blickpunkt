@@ -91,7 +91,6 @@ begin
     FileHelper := TFileHelper.Create();
     RefreshMainFormCaption();
     PrepareFolderPaths();
-    LoadConfig();
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -107,6 +106,7 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
     if (IsProgramStart) then
     begin
+        LoadConfig();
         FillNewPicturesList();
         LoadSavedPicturesList();
         RefreshSavedPicturesCaption();
