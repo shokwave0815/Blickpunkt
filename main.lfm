@@ -10,38 +10,37 @@ object MainForm: TMainForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '2.2.6.0'
   object PreviewSplitter: TSplitter
-    Left = 170
-    Height = 441
+    Left = 212
+    Height = 551
     Top = 0
-    Width = 10
+    Width = 12
   end
   object PanelLeft: TPanel
     Left = 0
-    Height = 441
+    Height = 551
     Top = 0
     Width = 212
     Align = alLeft
     BevelOuter = bvNone
-    ClientHeight = 441
+    ClientHeight = 551
     ClientWidth = 212
     TabOrder = 1
     object GrBo_SavedPictures: TGroupBox
       Left = 0
-      Height = 283
-      Top = 158
-      Width = 170
+      Height = 353
+      Top = 198
+      Width = 212
       Align = alClient
       Caption = 'gespeicherte Bilder'
-      ClientHeight = 263
-      ClientWidth = 166
+      ClientHeight = 328
+      ClientWidth = 208
       TabOrder = 2
       object SavedPictures: TListBox
         Left = 0
-        Height = 263
+        Height = 328
         Top = 0
-        Width = 166
+        Width = 208
         Align = alClient
         ItemHeight = 0
         OnClick = SavedPicturesClick
@@ -56,17 +55,17 @@ object MainForm: TMainForm
       Left = 0
       Height = 188
       Top = 0
-      Width = 170
+      Width = 212
       Align = alTop
       Caption = 'aktuelle Bilder'
-      ClientHeight = 168
-      ClientWidth = 166
+      ClientHeight = 163
+      ClientWidth = 208
       TabOrder = 0
       object NewPictures: TListBox
         Left = 0
-        Height = 130
+        Height = 163
         Top = 0
-        Width = 166
+        Width = 208
         Align = alClient
         ItemHeight = 0
         OnClick = NewPicturesClick
@@ -82,17 +81,17 @@ object MainForm: TMainForm
       Cursor = crVSplit
       Left = 0
       Height = 10
-      Top = 150
-      Width = 170
+      Top = 188
+      Width = 212
       Align = alTop
       ResizeAnchor = akTop
     end
   end
   object Preview: TImage
-    Left = 178
-    Height = 441
+    Left = 224
+    Height = 551
     Top = 0
-    Width = 580
+    Width = 724
     Align = alClient
     Center = True
     Proportional = True
@@ -100,9 +99,9 @@ object MainForm: TMainForm
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 23
-    Top = 441
-    Width = 758
+    Height = 29
+    Top = 551
+    Width = 948
     Panels = <>
   end
   object SaveDialog: TSaveDialog

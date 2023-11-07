@@ -22,6 +22,7 @@ implementation
 procedure TConfiguration.LoadForm(AForm: TMainForm);
 var
     INI: TIniFile;
+    aleft, atop: Integer;
 begin
     try
         INI := TINIFile.Create(GetAppConfigDir(False) + 'config.ini');
@@ -29,8 +30,11 @@ begin
         AForm.Left := AForm.Scale96ToScreen(INI.ReadInteger('Window', 'Left', 100));
         AForm.Width := AForm.Scale96ToForm(INI.ReadInteger('Window', 'Width', 800));
         AForm.Height := AForm.Scale96ToForm(INI.ReadInteger('Window', 'Height', 500));
-        AForm.PreviewSplitter.SetSplitterPosition(AForm.Scale96ToForm(INI.ReadInteger('Splitter', 'Left', 300)));
-        AForm.ListSplitter.SetSplitterPosition(AForm.Scale96ToForm(INI.ReadInteger('SplitterH', 'Top', 150)));
+        atop :=AForm.Scale96ToForm(INI.ReadInteger('SplitterH', 'Top', 150));
+        AForm.ListSplitter.SetSplitterPosition(atop);
+        aleft := AForm.Scale96ToForm(INI.ReadInteger('Splitter', 'Left', 300));
+        AForm.PreviewSplitter.Left:= aleft;
+        AForm.PreviewSplitter.SetSplitterPosition(aleft);
 
     finally
         FreeAndNil(INI);
