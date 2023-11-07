@@ -21,10 +21,10 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="3"/>
-      <BuildNr Value="12"/>
+      <MinorVersionNr Value="4"/>
+      <BuildNr Value="13"/>
       <Language Value="0407"/>
-      <StringTable Comments="Blickpunktbilder verwalten" CompanyName="shoKwave Inc." InternalName="Blickpunkt.exe" LegalCopyright="©2020 by shoKwave" OriginalFilename="Blickpunkt.exe" ProductName="Blickpunkt" ProductVersion="1.2"/>
+      <StringTable Comments="Blickpunktbilder verwalten" CompanyName="Ingo Steiniger" InternalName="Blickpunkt.exe" LegalCopyright="©2023 by Ingo Steiniger" OriginalFilename="Blickpunkt.exe" ProductName="Blickpunkt" ProductVersion="1.4"/>
     </VersionInfo>
     <BuildModes Count="2">
       <Item1 Name="Debug" Default="True"/>
