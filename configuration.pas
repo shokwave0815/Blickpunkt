@@ -60,6 +60,9 @@ var
     INIFile: TINIFile;
     i: integer;
 begin
+    ForceDirectories(GetAppConfigDir(False));
+    PicList.SaveToFile(GetAppConfigDir(False) + 'piclist.txt');
+    {
     try
         INIFile := TINIFile.Create(GetAppConfigDir(False) + 'config.ini');
         INIFile.EraseSection('Last');
@@ -70,6 +73,7 @@ begin
     finally
         FreeAndNil(INIFile);
     end;
+    }
 end;
 
 function TConfiguration.LoadPicturesList(): TStrings;
@@ -78,20 +82,27 @@ var
     PicList: TStrings;
     i: integer;
 begin
-    try
-        INIFile := TINIFile.Create(GetAppConfigDir(False) + 'config.ini');
-        PicList := TStringList.Create();
-        Result := TStringList.Create();
-        INIFile.ReadSection('Last', PicList);
+    Result := TStringList.Create();
+    if FileExists(GetAppConfigDir(False) + 'piclist.txt') then
+    begin
+        Result.LoadFromFile(GetAppConfigDir(False) + 'piclist.txt');
+    end else
+    begin
+        try
+            INIFile := TINIFile.Create(GetAppConfigDir(False) + 'config.ini');
+            PicList := TStringList.Create();
+            INIFile.ReadSection('Last', PicList);
 
-        for i := 0 to PicList.Count - 1 do
-        begin
-            Result.Append(INIFile.ReadString('Last', IntToStr(i), ''));
+            for i := 0 to PicList.Count - 1 do
+            begin
+                Result.Append(INIFile.ReadString('Last', IntToStr(i), ''));
+            end;
+        finally
+            FreeAndNil(PicList);
+            FreeAndNil(INIFile);
         end;
-    finally
-        FreeAndNil(PicList);
-        FreeAndNil(INIFile);
     end;
+
 end;
 
 end.

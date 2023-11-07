@@ -9,7 +9,7 @@ uses
     FileUtil, Types, FileHelper, ListHelper, LCLType;
 
 const
-    MY_VERSION = 'Blickpunkt V1.3b ©2019-2023 by I.Steiniger';
+    MY_VERSION = 'Blickpunkt V1.4 ©2019-2023 by I.Steiniger';
     ASSETS_PATH = '\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\';
 
 type
