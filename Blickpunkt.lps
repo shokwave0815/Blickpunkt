@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Release"/>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="Blickpunkt.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,7 +19,6 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="94" Y="8"/>
         <UsageCount Value="433"/>
         <Loaded Value="True"/>
@@ -46,8 +45,10 @@
       <Unit4>
         <Filename Value="configuration.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="25"/>
+        <TopLine Value="46"/>
+        <CursorPos X="62" Y="58"/>
         <UsageCount Value="137"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -72,8 +73,16 @@
         <CursorPos Y="2206"/>
         <UsageCount Value="10"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="..\..\Lazarus\ide\transfermacros.pp"/>
+        <UnitName Value="TransferMacros"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="146"/>
+        <CursorPos X="40" Y="159"/>
+        <UsageCount Value="10"/>
+      </Unit8>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="15" HistoryIndex="14">
       <Position1>
         <Filename Value="configuration.pas"/>
         <Caret Line="37" TopLine="20"/>
@@ -122,6 +131,18 @@
         <Filename Value="main.pas"/>
         <Caret Line="396" Column="186" TopLine="389"/>
       </Position12>
+      <Position13>
+        <Filename Value="listhelper.pas"/>
+        <Caret Line="79" Column="9"/>
+      </Position13>
+      <Position14>
+        <Filename Value="filehelper.pas"/>
+        <Caret Line="11" Column="31"/>
+      </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="8" Column="94"/>
+      </Position15>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

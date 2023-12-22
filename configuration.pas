@@ -56,24 +56,9 @@ begin
 end;
 
 procedure TConfiguration.SavePicturesList(PicList: TStrings);
-var
-  INIFile: TINIFile;
-  i: integer;
 begin
   ForceDirectories(GetAppConfigDir(False));
   PicList.SaveToFile(GetAppConfigDir(False) + 'piclist.txt');
-    {
-    try
-        INIFile := TINIFile.Create(GetAppConfigDir(False) + 'config.ini');
-        INIFile.EraseSection('Last');
-        for i := 0 to PicList.Count - 1 do
-        begin
-            INIFile.WriteString('Last', IntToStr(i), PicList.Strings[i]);
-        end;
-    finally
-        FreeAndNil(INIFile);
-    end;
-    }
 end;
 
 function TConfiguration.LoadPicturesList(): TStrings;
