@@ -9,7 +9,7 @@ object MainForm: TMainForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.2.0.0'
   object PreviewSplitter: TSplitter
     Left = 170
     Height = 441
@@ -43,12 +43,12 @@ object MainForm: TMainForm
         Width = 166
         Align = alClient
         ItemHeight = 0
+        PopupMenu = PopMen_SavedPictures
+        TabOrder = 0
         OnClick = SavedPicturesClick
         OnContextPopup = SavedPicturesContextPopup
         OnDblClick = SavedPicturesDblClick
         OnKeyDown = SavedPicturesKeyDown
-        PopupMenu = PopMen_SavedPictures
-        TabOrder = 0
       end
     end
     object GrBo_NewPictures: TGroupBox
@@ -68,13 +68,13 @@ object MainForm: TMainForm
         Width = 166
         Align = alClient
         ItemHeight = 0
+        ParentFont = False
+        PopupMenu = PopMen_NewPictures
+        TabOrder = 0
         OnClick = NewPicturesClick
         OnContextPopup = NewPicturesContextPopup
         OnDblClick = NewPicturesDblClick
         OnKeyDown = NewPicturesKeyDown
-        ParentFont = False
-        PopupMenu = PopMen_NewPictures
-        TabOrder = 0
       end
     end
     object ListSplitter: TSplitter

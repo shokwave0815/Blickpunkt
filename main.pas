@@ -166,6 +166,7 @@ end;
 procedure TMainForm.NewPicturesClick(Sender: TObject);
 var
   PictureName: string;
+  idx: Integer;
 begin
   SavedPictures.ClearSelection();
   if (ListHelper.HasSelectedItem(NewPictures)) then
@@ -174,6 +175,15 @@ begin
     if (FileExists(NewPicturesPath + PictureName)) then
     begin
       Preview.Picture.LoadFromFile(NewPicturesPath + PictureName);
+    end else
+    begin
+      idx := NewPictures.ItemIndex;
+      if NewPictures.Count -1 > idx then
+      begin
+        NewPictures.ItemIndex := idx + 1;
+        NewPictures.Selected[idx + 1] := true;
+      end;
+      NewPictures.Items.Delete(idx);
     end;
 
     SetIsNewText(PictureName);
