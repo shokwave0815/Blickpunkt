@@ -13,6 +13,9 @@ const
   ASSETS_PATH = '\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\';
 
 type
+
+  { TMainForm }
+
   TMainForm = class(TForm)
     GrBo_SavedPictures: TGroupBox;
     GrBo_NewPictures: TGroupBox;
@@ -62,6 +65,7 @@ type
     procedure PrepareFolderPaths();
     procedure DeleteSavedPicture(const PictureName: string);
     procedure RemoveFromSavedPicturesList(const PictureName: string);
+    procedure RemoveInvalidItem;
     procedure SaveConfig();
     procedure SaveSavedPicturesList();
     procedure SaveNewPicture(PictureName: string);
@@ -166,7 +170,6 @@ end;
 procedure TMainForm.NewPicturesClick(Sender: TObject);
 var
   PictureName: string;
-  idx: Integer;
 begin
   SavedPictures.ClearSelection();
   if (ListHelper.HasSelectedItem(NewPictures)) then
@@ -175,18 +178,12 @@ begin
     if (FileExists(NewPicturesPath + PictureName)) then
     begin
       Preview.Picture.LoadFromFile(NewPicturesPath + PictureName);
+      SetIsNewText(PictureName);
     end else
     begin
-      idx := NewPictures.ItemIndex;
-      if NewPictures.Count -1 > idx then
-      begin
-        NewPictures.ItemIndex := idx + 1;
-        NewPictures.Selected[idx + 1] := true;
-      end;
-      NewPictures.Items.Delete(idx);
+      RemoveInvalidItem;
     end;
 
-    SetIsNewText(PictureName);
   end;
 end;
 
@@ -334,6 +331,19 @@ end;
 procedure TMainForm.RemoveFromSavedPicturesList(const PictureName: string);
 begin
   SavedPictures.Items.Delete(SavedPictures.Items.IndexOf(PictureName));
+end;
+
+procedure TMainForm.RemoveInvalidItem;
+var
+  idx: Integer;
+begin
+  idx := NewPictures.ItemIndex;
+  if idx > 0 then
+  begin
+    NewPictures.ItemIndex := idx - 1;
+    NewPictures.Selected[idx - 1] := true;
+  end;
+  NewPictures.Items.Delete(idx);
 end;
 
 procedure TMainForm.SaveConfig();
