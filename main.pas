@@ -9,7 +9,7 @@ uses
   FileUtil, Types, FileHelper, ListHelper, LCLType;
 
 const
-  MY_VERSION = 'Blickpunkt V1.5 ©2019-2024 by I.Steiniger';
+  MY_VERSION = 'Blickpunkt V1.6 ©2019-2025 by I.Steiniger';
   ASSETS_PATH = '\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\';
 
 type
@@ -40,6 +40,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure NewPicturesDrawItem(Control: TWinControl; Index: integer; ARect: TRect; State: TOwnerDrawState);
     procedure NewPicturesKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure NewPicturesSaveClick(Sender: TObject);
     procedure SavedPicturesKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -86,7 +87,8 @@ implementation
 
 {$R *.lfm}
 
-uses configuration;
+uses
+  configuration;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
@@ -125,6 +127,31 @@ begin
 
     IsProgramStart := False;
   end;
+end;
+
+procedure TMainForm.NewPicturesDrawItem(Control: TWinControl; Index: integer; ARect: TRect; State: TOwnerDrawState);
+var
+  lb: TListBox absolute Control;
+  ts: TTextStyle;
+begin
+  if (PictureIsAlreadySaved(lb.Items[Index])) then
+  begin
+    lb.Canvas.Brush.Color := $E8FFE8;
+  end else
+  begin
+    lb.Canvas.Brush.Color := $E8FFFF;
+  end;
+
+  if odSelected in State then
+    lb.Canvas.Brush.Color := clBlue;
+
+  lb.Canvas.FillRect(ARect);
+
+  ts := lb.Canvas.TextStyle;
+  ts.Alignment := taLeftJustify;
+  ts.Layout := tlCenter;
+  lb.Canvas.Pen.Color := clBlack;
+  lb.Canvas.TextRect(ARect, ARect.Left + 2, ARect.Top, lb.Items[Index], ts);
 end;
 
 procedure TMainForm.NewPicturesKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -325,6 +352,7 @@ begin
 
     RemoveFromSavedPicturesList(PictureName);
     RefreshSavedPicturesCaption();
+    NewPictures.Invalidate();
   end;
 end;
 
@@ -335,13 +363,13 @@ end;
 
 procedure TMainForm.RemoveInvalidItem;
 var
-  idx: Integer;
+  idx: integer;
 begin
   idx := NewPictures.ItemIndex;
   if idx > 0 then
   begin
     NewPictures.ItemIndex := idx - 1;
-    NewPictures.Selected[idx - 1] := true;
+    NewPictures.Selected[idx - 1] := True;
   end;
   NewPictures.Items.Delete(idx);
 end;
@@ -369,8 +397,7 @@ begin
   if (PictureIsAlreadySaved(PictureName)) then
   begin
     RemoveFromSavedPicturesList(PictureName);
-  end
-  else
+  end else
   begin
     SavePictureToDefaultPath(PictureName);
   end;
@@ -378,6 +405,7 @@ begin
   SetPictureOnTopOfSavedPicturesList(PictureName);
   RefreshSavedPicturesCaption();
   SetIsNewText(PictureName);
+  NewPictures.Invalidate();
 end;
 
 procedure TMainForm.SetPictureOnTopOfSavedPicturesList(PictureName: string);
@@ -396,11 +424,10 @@ begin
     if (ForceDirectories(SavedPicturesPath)) then
     begin
       CopyFile(Source, Target, []);
-    end
-    else
+    end else
     begin
-      MessageDlg('Blickpunkt', 'Fehler: Der Ordner "' + SavedPicturesPath +
-        '" existiert nicht und konnte auch nicht angelegt werden.' + 'Bitte prüfen sie den Pfad.',
+      MessageDlg('Blickpunkt', 'Fehler: Der Ordner "' + SavedPicturesPath + '" existiert nicht und konnte auch nicht angelegt werden.' +
+        'Bitte prüfen sie den Pfad.',
         mtError, [mbOK], 0);
     end;
   end;
@@ -441,8 +468,7 @@ begin
   if (PictureIsAlreadySaved(PictureName)) then
   begin
     StatusBar.SimpleText := 'Dieses Bild ist bereits vorhanden.';
-  end
-  else
+  end else
   begin
     StatusBar.SimpleText := 'Dieses Bild ist neu.';
   end;

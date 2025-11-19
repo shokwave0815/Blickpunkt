@@ -6,10 +6,10 @@ object MainForm: TMainForm
   Caption = 'Blickpunkt V1.0 ©2020 by shoKwave'
   ClientHeight = 464
   ClientWidth = 758
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '3.2.0.0'
   object PreviewSplitter: TSplitter
     Left = 170
     Height = 441
@@ -70,10 +70,12 @@ object MainForm: TMainForm
         ItemHeight = 0
         ParentFont = False
         PopupMenu = PopMen_NewPictures
+        Style = lbOwnerDrawFixed
         TabOrder = 0
         OnClick = NewPicturesClick
         OnContextPopup = NewPicturesContextPopup
         OnDblClick = NewPicturesDblClick
+        OnDrawItem = NewPicturesDrawItem
         OnKeyDown = NewPicturesKeyDown
       end
     end
