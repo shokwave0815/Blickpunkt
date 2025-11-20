@@ -139,7 +139,7 @@ begin
     lb.Canvas.Brush.Color := $E8FFE8;
   end else
   begin
-    lb.Canvas.Brush.Color := $E8FFFF;
+    lb.Canvas.Brush.Color := $CCFFFF;
   end;
 
   if odSelected in State then

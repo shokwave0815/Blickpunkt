@@ -79,3 +79,4 @@ published/
 lib/
 *.exe
 *.dbg
+*.bat
