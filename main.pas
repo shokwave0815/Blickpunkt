@@ -134,16 +134,13 @@ var
   lb: TListBox absolute Control;
   ts: TTextStyle;
 begin
-  if (PictureIsAlreadySaved(lb.Items[Index])) then
+  if (not PictureIsAlreadySaved(lb.Items[Index])) then
   begin
-    lb.Canvas.Brush.Color := $E8FFE8;
-  end else
-  begin
-    lb.Canvas.Brush.Color := $CCFFFF;
+    if odSelected in State then
+    lb.Canvas.Font.Color := $90FF90
+  else
+    lb.Canvas.Font.Color := $338833;
   end;
-
-  if odSelected in State then
-    lb.Canvas.Brush.Color := clBlue;
 
   lb.Canvas.FillRect(ARect);
 

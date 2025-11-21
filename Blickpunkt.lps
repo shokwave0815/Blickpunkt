@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Release"/>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="Blickpunkt.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="11" Y="8"/>
+        <CursorPos X="5" Y="24"/>
         <UsageCount Value="433"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <TopLine Value="131"/>
-        <CursorPos X="33" Y="142"/>
+        <CursorPos X="32" Y="140"/>
         <UsageCount Value="433"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -90,6 +90,13 @@
         <CursorPos X="3" Y="1160"/>
         <UsageCount Value="10"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="..\kocolog\kocolog.lpi"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="37" Y="21"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit10>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
